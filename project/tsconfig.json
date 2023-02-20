@@ -10,5 +10,5 @@
         "esModuleInterop": true
 
     },
-    "include": ["*.ts", "tests/catalog.spec.ts"]
+    "include": ["*.ts", "tests/catalog.spec.ts", "pages/basePage.ts"]
 }
