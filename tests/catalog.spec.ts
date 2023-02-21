@@ -22,8 +22,9 @@ describe("Catalog Onliner", () => {
 
   afterEach(async () => {
     await driverManager.openNewTab();
-    await driverManager.switchToTab();
+    await driverManager.switchToTab(0);
     await driverManager.closeActiveTab();
+    await driverManager.switchToTab(0);
   }, 15000);
 
   afterAll(async () => {

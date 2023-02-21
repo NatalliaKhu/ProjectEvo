@@ -20,14 +20,9 @@ export class DriverManager {
     return await this.driver.switchTo().newWindow("tab");
   }
 
-  async switchToTab() {
-    const originalWindow: string = await this.driver.getWindowHandle();
-    const windows: string[] = await this.driver.getAllWindowHandles();
-    windows.forEach(async (handle) => {
-      if (handle !== originalWindow) {
-        await this.driver.switchTo().window(handle);
-      }
-    });
+  async switchToTab(index: number) {
+    const handles: string[] = await this.driver.getAllWindowHandles();
+    return await this.driver.switchTo().window(handles[index]);
   }
 
   async closeActiveTab() {
