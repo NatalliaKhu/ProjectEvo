@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "types": [
+            "node",
+            "jest"
+        ],
+        "target": "ES2016", 
+        "esModuleInterop": true
+
+    },
+    "include": ["*.ts", "tests/catalog.spec.ts", "pages/basePage.ts"]
+}

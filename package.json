@@ -1,0 +1,25 @@
+{
+    
+    "dependencies": { 
+    "@types/chromedriver": "^81.0.1",  
+    "@types/jest": "^29.4.0",  
+    "@types/selenium-webdriver": "^4.1.11",   
+    "@types/superagent": "^4.1.16", 
+    "chromedriver": "^109.0.0",  
+    "selenium-webdriver": "^4.8.0",    
+    "superagent": "^8.0.9",   
+    "ts-jest": "^29.0.5"
+    },
+    
+    "scripts": {    
+    "testCatalog": "jest catalog.spec.ts",   
+    "testApi": "jest api.spec.ts"
+    },
+    
+    "author": "tests",
+    "license": "ISC",
+    
+    "devDependencies": {   
+    "jest": "^29.4.3"
+    }
+}
