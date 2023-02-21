@@ -2,8 +2,9 @@ import { WebDriver } from "selenium-webdriver";
 import { DriverManager } from "../helpers/driver-manager";
 import { SearchPage } from "../pages/search-page";
 import * as consts from "../consts";
-import * as pages from "../pages";
 import { BasePage } from "../pages/basePage";
+import * as catalog from "../pages/catalog-page";
+import * as search from "../pages/search-page";
 
 describe("Catalog Onliner", () => {
   const driverManager: DriverManager = new DriverManager();
@@ -30,14 +31,13 @@ describe("Catalog Onliner", () => {
   });
 
   test("'Наушники и гарнитуры' section is open", async () => {
-    await driver.findElement(pages.catalog.elements.headphonesLink()).click();
-    expect(driver.findElement(pages.catalog.elements.headphonesTitle()))
-      .toBeTruthy;
+    await driver.findElement(catalog.elements.headphonesLink()).click();
+    expect(driver.findElement(catalog.elements.headphonesTitle())).toBeTruthy;
   }, 15000);
 
   test("Click on 'Каталог' opens main catalog page", async () => {
-    await driver.findElement(pages.catalog.elements.headphonesLink()).click();
-    await driver.findElement(pages.catalog.elements.catalogLink()).click();
+    await driver.findElement(catalog.elements.headphonesLink()).click();
+    await driver.findElement(catalog.elements.catalogLink()).click();
     const currentUrl: string = await driver.getCurrentUrl();
     expect(consts.URL.catalog).toEqual(currentUrl);
   }),
@@ -46,14 +46,13 @@ describe("Catalog Onliner", () => {
   test("Make search", async () => {
     await new SearchPage(driver).openSearchWindowIframe();
     expect(
-      await driver.findElement(pages.search.elements.searchResult()).getText()
+      await driver.findElement(search.elements.searchResult()).getText()
     ).toContain(consts.text.searchTextForKeys);
   }, 15000);
 
   test("Make search and open item page", async () => {
     await new SearchPage(driver).openSearchWindowIframe();
-    await driver.findElement(pages.search.elements.searchResult()).click();
-    expect(await driver.findElement(pages.search.elements.searchedItem()))
-      .toBeTruthy;
+    await driver.findElement(search.elements.searchResult()).click();
+    expect(await driver.findElement(search.elements.searchedItem())).toBeTruthy;
   }, 15000);
 });
