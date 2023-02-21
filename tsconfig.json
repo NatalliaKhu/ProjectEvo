@@ -3,8 +3,7 @@
         "module": "commonjs",
         "types": [
             "node",
-            "jest",
-            "mocha"
+            "jest"
         ],
         "target": "ES2016", 
         "esModuleInterop": true
